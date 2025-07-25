@@ -1,0 +1,78 @@
+# Example Configuration File for Image Analysis Pipeline
+# This file can be used with: python cli.py --config example_config.yaml
+
+# Input/Output Configuration
+input_dir: "images"  # Directory containing TIFF images
+output_dir: "image_analysis_results"  # Output directory for results
+file_pattern: "*.tif"  # File pattern to match TIFF files
+channels: ["channel_1", "channel_2", "channel_3", "channel_4"]  # Channel names
+
+# Feature Extraction Configuration
+feature_extraction:
+  # Enable/disable different feature types
+  statistical_features: true
+  texture_features: true
+  morphological_features: true
+  haralick_features: true
+  hog_features: true
+  lbp_features: true
+  color_features: true
+  edge_features: true
+  shape_features: true
+  
+  # GLCM (Gray Level Co-occurrence Matrix) parameters
+  glcm_distances: [1]  # Distance offsets
+  glcm_angles: [0, 0.785, 1.571, 2.356]  # Angles in radians (0°, 45°, 90°, 135°)
+  
+  # LBP (Local Binary Pattern) parameters
+  lbp_points: 8  # Number of sampling points
+  lbp_radius: 1  # Radius of the circular neighborhood
+  
+  # HOG (Histogram of Oriented Gradients) parameters
+  hog_orientations: 9  # Number of orientation bins
+  hog_pixels_per_cell: [8, 8]  # Size of each cell
+  hog_cells_per_block: [2, 2]  # Number of cells in each block
+
+# Similarity Analysis Configuration
+similarity_analysis:
+  # Distance metrics to use for similarity calculation
+  distance_metrics: ["cosine", "euclidean", "correlation"]
+  
+  # Clustering methods to apply
+  clustering_methods: ["kmeans", "hierarchical"]
+  
+  # Number of clusters for K-means
+  n_clusters: 5
+  
+  # PCA parameters
+  pca_n_components: 50  # Number of principal components
+  
+  # t-SNE parameters
+  tsne_n_components: 2  # Number of output dimensions
+  tsne_perplexity: 30  # Perplexity parameter
+  
+  # UMAP parameters
+  umap_n_components: 2  # Number of output dimensions
+  umap_n_neighbors: 15  # Number of neighbors
+  umap_min_dist: 0.1  # Minimum distance between points
+  
+  # Random state for reproducibility
+  random_state: 42
+
+# Visualization Configuration
+visualization:
+  plot_style: "seaborn"  # Matplotlib style
+  figure_size: [12, 8]  # Figure size in inches
+  dpi: 300  # Dots per inch for saved plots
+  color_palette: "viridis"  # Color palette for plots
+  max_images_per_plot: 20  # Maximum number of images per plot
+  save_format: "png"  # Output format for plots
+
+# Report Configuration
+report:
+  include_plots: true  # Include plots in HTML report
+  include_tables: true  # Include tables in HTML report
+  include_statistics: true  # Include statistics in HTML report
+  include_interactive: true  # Include interactive elements
+  max_table_rows: 100  # Maximum rows in tables
+  max_table_cols: 20  # Maximum columns in tables 
