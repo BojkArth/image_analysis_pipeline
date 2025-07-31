@@ -57,7 +57,7 @@ The pipeline consists of several key components:
 
 ### 1. Installation
 
-The pipeline uses existing dependencies from the superfluid environment. Ensure you have the following packages installed:
+The pipeline uses existing dependencies from the base environment. Ensure you have the following packages installed:
 
 ```bash
 # Core dependencies (should already be in your environment)
@@ -396,7 +396,7 @@ To contribute to the image analysis pipeline:
 
 ## 📄 License
 
-This module is part of the Superfluid project and follows the same licensing terms.
+This module is a one-shot-coding test project and follows MIT licensing terms.
 
 ## 🆘 Support
 
